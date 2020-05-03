@@ -1,1 +1,1 @@
-# Outros-exerc-cios
+# Repositório dos conteúdos referentes à matéria de Algoritmos avançados.
