@@ -1,3 +1,7 @@
+'''
+Um grafo fortemente conectado consiste na possibilidade de existir um caminho de qualquer vértice para qualquer outro. 
+'''
+
 respostas = []
 
 def adicionar_no(grafo_reverso, origem, destino):
