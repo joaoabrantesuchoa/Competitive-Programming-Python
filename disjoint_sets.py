@@ -8,7 +8,7 @@ def find_set(v):
     parent[v] = find_set(parent[v])
     return parent[v]
 
-def find_set(a,b):
+def union_set(a,b):
     a = find_set(a)
     b = find_set(b)
     if a != b:
