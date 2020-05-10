@@ -1,16 +1,23 @@
 '''Para construir a segmeent tree, nos vamos criar uma array de somas.
-Nesse array, cada index representa a soma de um partido da raiz e seus filhos consecutivos, no caso da array A = [4,5,6], significa que a soma da raiz está no indíce 0, a soma dos seus filhos estão nos indices 1 e 2, a soma dos filhos dos filhos estão nos indices 3,4,5,6 e assim por diante.
+Nesse array, cada index representa a soma de um partido da raiz e seus filhos consecutivos, 
+no caso da array A = [4,5,6], significa que a soma da raiz está no indíce 0, 
+a soma dos seus filhos estão nos indices 1 e 2, a soma dos filhos dos filhos estão nos indices 3,4,5,6 e assim por diante.
 
-Partindo desse princípio, é visível que o child node do lado esquerdo de um nó de index I é 2I, enquanto o child node do lado direito do mesmo nó de index I é 2I + 1.
+Partindo desse princípio, é visível que o child node do lado esquerdo de um nó de index I é 2I, 
+enquanto o child node do lado direito do mesmo nó de index I é 2I + 1.
 
 No pior caso, o tamanho da array será 4N(N é o número de vertices)
 '''
+
 N = int(input())
 array = list(map(int,input().split()))
 
 segment_tree = [0] * (4 * N)
 
-''' A função que constroi a segment tree recebe quatro parâmetros,  a array A(input array), v(o index do vértice atual), TL e TR(os limites do segmento atual). No caso do vértice raiz, v= 1, tl = 0 tr = N - 1.
+''' 
+A função que constroi a segment tree recebe quatro parâmetros,  
+a array A(input array), v(o index do vértice atual), TL e TR(os limites do segmento atual). 
+No caso do vértice raiz, v= 1, tl = 0 tr = N - 1.
 '''
 def build(array, v, tl, tr):
     if tl == tr:
@@ -21,7 +28,8 @@ def build(array, v, tl, tr):
         build(array, (v * 2) + 1, tm + 1, tr)
         segment_tree[v] = segment_tree[v*2] + segment_tree[(v*2) + 1]
 
-''' A função soma das queries tem como parâmetros as informações sobre o segmento atual(index v e limites tl e tr) além dos limites da query l e r. 
+''' A função soma das queries tem como parâmetros as informações sobre o segmento atual(index v e limites tl e tr) 
+além dos limites da query l e r. 
 '''
 
 def soma_queries(v,tl,tr,l,r):
@@ -50,8 +58,6 @@ def update(v,tl,tr,pos,new_val):
 build(array,1,0,N-1)
 soma = soma_queries(1,0,N-1,1,3)
 print(soma)
-'''Otimização para eficiência de memória'''
-
 
     
 '''
