@@ -1,1 +1,1 @@
-# Repositório dos conteúdos referentes à matéria de Algoritmos avançados.
+# Algorithms and Data Structure for competitive programming 
